@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.3/lottie_svg.min.js"></script>
+    <title>11 MESES JUNTOS</title>
+    <link rel="icon" href="C:\Users\elbro\Desktop\Para mi novia\img\tab-icon.png "/>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --primary: #fff;
+    --bg-envelope-color: #f5edd1;
+    --envelope-tab: #ecdeb8;
+    --envelope-cover: #e6cfa7;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8, 231);
+  }
+  .one{
+    background-color: #cccccc;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .background{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+  .one{
+    width: 100%;
+    height: 100%;
+  }
+  .background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .container {
+    height: 100%;
+    width: 100%;
+    top: 1.5rem;
+    display: grid;
+    position: absolute;
+    place-items: center;
+  }
+  .container > .envelope-wrapper {
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+  }
+  .envelope-wrapper > .envelope {
+    position: relative;
+    width: 500px;
+    height: 240px;
+  }
+  .envelope-wrapper > .envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    border-top: 150px solid var(--envelope-tab);
+    border-right: 250px solid transparent;
+    border-left: 250px solid transparent;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+  }
+  .envelope-wrapper > .envelope::after {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0px;
+    height: 0px;
+    border-top: 150px solid transparent;
+    border-right: 250px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    border-left: 250px solid var(--envelope-cover);
+  }
+  .envelope > .letter {
+    position: absolute;
+    right: 20%;
+    bottom: 0;
+    width: 60%;
+    height: 98%;
+    background: var(--primary);
+    text-align: center;
+    transition: all 1s ease-in-out;
+    box-shadow: 0 0 5px var(--shadow-color);
+    padding: 15px 15px 50px 15px;
+  }
+  
+  .envelope > .letter > .text {
+    font-family: 'Comic Neue';
+    color: var(--txt-color);
+    text-align: left;
+    font-size: 12px;
+  }
+  .heart {
+    position: absolute;
+    top: 51%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    background: rgb(255, 131, 151);
+    z-index: 4;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    box-shadow: 0 1px 6px var(--shadow-color);
+    cursor: pointer;
+  }
+  .heart:before, 
+  .heart:after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 131, 151);
+    border-radius: 50%;
+  }
+  .heart:before {
+    top: -15.5px;
+  }
+  .heart:after {
+    right: 15.5px;
+  }
+  .flap > .envelope:before {
+    transform: rotateX(180deg);
+    z-index: 0;
+  }
+  .flap > .envelope > .letter {
+    bottom: 140px;
+    transform: scale(1.5);
+    transition-delay: 1s;
+  }
+  .flap > .heart {
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+  }
+  .love{
+    text-align: center;
+    font-weight: bold;
+  }
+  .pana{
+    width: 100%;
+    margin-top: .3rem;
+  }
+  .pana img{
+    width: 1.5rem;
+    margin: auto;
+  }
+
+  #window #gif img{
+    opacity: 0;
+    transition: opacity .3s, width .3s;
+    width: 5rem;
+  }
+  #gif{
+    pointer-events: none;
+  }
+
+  #window:hover #gif img{
+    opacity: 1;
+    width: 11rem;
+  }
+
+  .music-container{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 450px;
+    z-index: 1;
+    transition: all 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .player{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+  }
+
+  .track-info{
+    position: absolute;
+    top: 0;
+    left: -.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: all .25s ease;
+  }
+
+  .trackname{
+    font-size: 1.5rem;
+    font-weight: bold;
+    pointer-events: none;
+  }
+  .trackartist{
+    font-size: .8rem;
+    pointer-events: none;
+  }
+  .track-nav{
+    gap: .2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all .25s ease;
+  }
+
+  .music-container.hide {
+    width: 140px;
+  }
+
+  .music-container.hide .track-info,
+  .music-container.hide .track-nav {
+    transition: all 0s ease;
+    opacity: 0;
+  }
+
+  .toggle-player{
+    position: absolute;
+    right: -1rem;
+    top: -1rem;
+    width: 2rem;
+    z-index: 2;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  .sound-bars-lottie{
+    position: absolute;
+    top: 1.1rem;
+    left: 4.5rem;
+  }
+  .sound-bars{
+    width: 100%;
+    width: 60px;
+    height: 60px;
+  }
+  .prev-track, .playpause-track, .next-track{
+    cursor: pointer;
+    z-index: 100;
+    border-radius: 100%;
+    padding: .3rem;
+  }
+
+  .prev-track:hover, .playpause-track:hover, .next-track:hover{
+    background-color: rgb(190, 190, 190);
+    transition-duration: .5s;
+  }
+    </style>
+</head>
+<body style="font-family: 'Comic Neue';" class="relative">
+
+    <!-- MUSIC PLAYER -->
+    <div class="fixed left-6 bottom-6 z-10">
+        <div class="music-container relative bg-neutral-100 py-3 px-3 border-2 z-10 rounded-md border-black flex items-center">
+            <div class="toggle-player bg-neutral-100 border-2 border-black">
+                <img class="w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/close.svg" alt="">
+            </div>
+            <div class="avatar absolute w-14">
+                <img class="w-full border-2 bg-white border-black rounded-md" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/pinkheart.svg" alt="">
+            </div>
+            <div class="player">
+                <div class="sound-bars-lottie">
+                    <div class="sound-bars"></div>
+                </div>
+                <div class="track-info -space-y-1">
+                    <div class="trackname">Only</div>
+                    <div class="trackartist">Track Artist</div>
+                </div>
+                <div class="track-nav">
+                    <div class="prev-track">
+                        <img class="w-7" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/backplayer.svg" alt="">
+                    </div>
+                    <div class="playpause-track">
+                        <img class="w-8" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/play.svg" alt="">
+                    </div>
+                    <div class="next-track">
+                        <img class="w-7" style="transform: rotate(180deg);" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/backplayer.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND -->
+    <div class="background">
+        <div class="one">
+            <img src="https://media.istockphoto.com/id/1431993908/es/vector/abstracto-rosa-pastel-acuarela-fondo-de-archivo.jpg?s=612x612&w=0&k=20&c=8LRnnuXosPOP2UEKctLubbALpy8PvX4Pt82VE_VCXE0=" alt="">
+            <div class="container">
+                <div class="envelope-wrapper">
+                    <div class="envelope">
+                        <div class="letter">
+                            <div class="text">
+                                <strong style="font-size: .89rem;">Para mi Karito❤️</strong>
+                                <p style="text-indent: 15px;">
+                                    Estamos compartiendo 11 meses juntos y no sabes cuanto agradezco de tenerte a mi lado, eres tan hermosa como el primer dia en el que te vi, eres mi reina, mi niña y mi todo, espero que tu y yo sigamos juntos de aqui hasta que la muerte nos separe.
+                                </p>
+                                <p class="love">TE AMO MUCHO MI WERITA❤️</p>
+                                <div class="pana">
+                                    <img src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/heartarrow.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="heart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIRST CARD -->
+    <div class="w-full h-[100vh] z-0 relative">
+        <!-- BACKGROUND -->
+        <img class="w-full h-full object-cover" src="https://img.freepik.com/vector-premium/cielo-rosa-nubes-fondo-dibujos-animados-san-valentin-ilustracion-brillante-diseno_69037-48.jpg" alt="">
+        <!-- FIRST PAGE -->
+        <div class="absolute top-0 h-full flex items-center justify-center flex-col w-full">
+            <!-- FIRST CARD -->
+            <div id="window" class="bg-neutral-100 relative shadow-md hover:shadow-xl duration-150 hover:scale-105 rounded-md w-[34rem] flex justify-center flex-col border-2 border-black">
+                 <!-- GIFS -->
+                <div id="gif" class="absolute -top-20 -left-60">
+                    <img class="w-full -rotate-12" src="https://media.tenor.com/Xmr01nUr0I0AAAAi/cute-dog.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -bottom-20 -left-60">
+                    <img class="w-full rotate-12" src="https://media.tenor.com/X3MIBBH6ZgMAAAAi/doglookinghungryandsnacking-dog.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -top-20 -right-60">
+                    <img class="w-full rotate-3" src="https://media.tenor.com/xI8X94Z_emgAAAAi/puppy-dog.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -bottom-20 -right-60">
+                    <img class="w-full -rotate-12" src="https://media.tenor.com/l5ebZnCiFtoAAAAi/dog-dog-pop.gif" alt="">
+                </div>
+                <div class="flex items-center px-1 py-1 justify-between w-full border-b-2 border-black">
+                    <div>
+                        <img class="w-5" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/back.svg" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-lg">Mi Princesa Hermosa</h1>
+                    </div>
+                    <div>
+                        <img class="w-6" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/x.svg">
+                    </div>
+                </div>
+                <div class="relative border-b-2 border-black">
+                    <div class="absolute bottom-2 left-12 w-14">
+                        <img class="rotate-12 w-full" src="C:\Users\elbro\Desktop\Para mi novia\img\fingerheart.png" alt="">
+                    </div>
+                    <div class="absolute top-3 right-3 w-12">
+                        <img class="rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/dog.svg" alt="">
+                    </div>
+                    <div class="absolute bottom-2 right-14 w-11">
+                        <img class="-rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/herheart.svg" alt="">
+                    </div>
+                    <div class="absolute top-3 left-3 w-10">
+                        <img class="-rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/herbleh.svg" alt="">
+                    </div>
+                    <div class="text-center py-5">
+                        <h1 class="font-extrabold text-5xl">Mi Karito❤️</h1>
+                        <p class="text-base">Wera/Karola/Choto</p>
+                    </div>
+                </div>
+                <!-- IMAGES -->
+                <div class="flex justify-center">
+                    <div class="w-44 flex justify-center py-5 gap-3">
+                        <img class="w-40" src="C:\Users\elbro\Desktop\Para mi novia\img\bb1.jpeg" alt="">
+                        <img class="w-40" src="C:\Users\elbro\Desktop\Para mi novia\img\bb2.jpeg" alt="">
+                        <img class="w-40" src="C:\Users\elbro\Desktop\Para mi novia\img\bb3.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <!-- SECOND CARD -->
+    <div class="w-full h-[100vh] z-0 relative ">
+        <!-- BACKGROUND -->
+        <img class="w-full h-full object-cover" src="https://static.vecteezy.com/system/resources/thumbnails/001/790/945/small/abstract-pink-background-free-video.jpg" alt="">
+        <!-- SECOND PAGE -->
+        <div class="absolute top-0 h-full flex items-center justify-center flex-col w-full">
+            <!-- SECOND CARD -->
+            <div id="window" class="bg-neutral-100 relative shadow-md hover:shadow-xl duration-150 hover:scale-105 rounded-md w-[34rem] flex justify-center flex-col border-2 border-black">
+                <!-- GIFS -->
+                <div id="gif" class="absolute -top-20 -left-60 w-40">
+                    <img class="w-full -rotate-6" src="https://media.tenor.com/ULt1QoO_tc0AAAAj/cat-vibe-vibe-cat.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -bottom-20 -left-64 w-44">
+                    <img class="w-full -rotate-6" src="https://media.tenor.com/u56nhKZD24AAAAAi/catkiss-cat.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -top-20 -right-64 w-44">
+                    <img class="w-full rotate-6" src="https://media.tenor.com/cqQ9eq9xIrgAAAAi/cat.gif" alt="">
+                </div>
+                <div id="gif" class="absolute -bottom-20 -right-64 w-40">
+                    <img class="w-full rotate-6" src="https://media.tenor.com/SI5tOTnHS34AAAAi/verycat-twitch-cat-twitch-emote.gif" alt="">
+                </div>
+                <div class="flex items-center px-1 py-1 justify-between w-full border-b-2 border-black">
+                    <div>
+                        <img class="w-5" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/back.svg" alt="">
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-lg">El Rey Guapo</h1>
+                    </div>
+                    <div>
+                        <img class="w-6" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/x.svg" alt="">
+                    </div>
+                </div>
+                <div class="relative border-b-2 border-black">
+                    <div class="absolute bottom-3 left-12 w-11">
+                        <img class="rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/gaming.svg" alt="">
+                    </div>
+                    <div class="absolute top-3 right-3 w-12">
+                        <img class="rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/cat.svg" alt="">
+                    </div>
+                    <div class="absolute bottom-2 right-14 w-12">
+                        <img class="-rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/cool.svg" alt="">
+                    </div>
+                    <div class="absolute top-3 left-3 w-10">
+                        <img class="-rotate-12 w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/hisbleh.svg" alt="">
+                    </div>
+                    <div class="text-center py-5">
+                        <h1 class="font-extrabold text-5xl">Su Niño Hermoso❤️</h1>
+                        <p class="text-base">Negro/Astral/Mayate</p>
+                    </div>
+                </div>
+                <!-- IMAGES -->
+                <div class="flex justify-center">
+                    <div class="w-44 flex justify-center py-5 gap-3">
+                        <img class="w-40" src="C:\Users\elbro\Desktop\Para mi novia\img\guapo1.jpeg" alt="">
+                        <img class="w-40 object-cover" src="C:\Users\elbro\Desktop\Para mi novia\img\guapo2.jpeg" alt="">
+                        <img class="w-40 object-cover" src="C:\Users\elbro\Desktop\Para mi novia\img\guapo3.jpeg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+    <!-- FOURTH -->
+    <div class="w-full h-[100vh] z-0 relative">
+        <!-- BACKGROUND -->
+        <img class="w-full h-full object-cover" src="https://static.vecteezy.com/system/resources/previews/011/443/504/non_2x/pink-cartoon-flowers-background-seamless-pattern-eps-simple-modern-abstract-summer-floral-print-design-vector.jpg" alt="">
+        <div class="absolute top-0 w-full h-full flex justify-center items-center">
+            <!-- COUNTER -->
+            <div class="flex bg-neutral-100 gap-5 relative border-2 z-10 border-black flex-col px-5 pb-3 shadow-md pt-9 rounded-md">
+                <!-- GIFS -->
+                <div class="absolute top-1 right-1 w-7">
+                    <img class="w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/heart.svg" alt="">
+                </div>
+                <div class="absolute -top-20 -left-56 w-44">
+                    <img class="w-full -rotate-6" src="https://media.tenor.com/dg7Th23TzFUAAAAi/cat_-vodk.gif" alt="">
+                </div>
+                <div class="absolute -bottom-3 -right-52 w-44">
+                    <img class="w-full" src="https://media.tenor.com/LrSL7XDKVbgAAAAi/peachcat-cat.gif" alt="">
+                </div>
+                <div class="absolute top-[-8rem] z-0 right-28 w-36">
+                    <img class="w-full" src="https://media.tenor.com/A5VhCveZ_ygAAAAi/peach-and-goma-peach-goma.gif" alt="">
+                </div>
+                <div class="absolute -bottom-48 z-0 left-16 w-40">
+                    <img class="w-full" src="https://media.tenor.com/ewJrc9fZeaQAAAAi/prots-masaj.gif" alt="">
+                </div>
+
+                <!-- DATE COUNTER -->
+                <div class="flex gap-5" id="myCountdown">
+                    <div class="bg-transparent border-2 border-black rounded-md w-40 h-52 flex justify-center items-center flex-col gap-10">
+                        <h1 id="years" class="text-6xl font-bold">0</h1>
+                        <p class="font-bold text-xl text-red-700">Year</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-40 h-52 flex justify-center items-center flex-col gap-10">
+                        <h1 id="months" class="text-6xl font-bold">0</h1>
+                        <p class="font-bold text-xl text-red-700">Months</p>
+                    </div>
+                    <div class="bg-transparent border-2 border-black rounded-md w-40 h-52 flex justify-center items-center flex-col gap-10">
+                        <h1 id="days" class="text-6xl font-bold">0</h1>
+                        <p class="font-bold text-xl text-red-700">Days</p>
+                    </div>
+                 
+                </div>
+                <h1 class="text-center font-bold text-base">Novios desde 18-Septiembre-2023</h1>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            envelope.classList.toggle('open');
+        });
+    </script>
+    
+    <script src="app.js"></script> 
+    <script>
+        let anniversary = "2023-09-18";
+let date = new Date(anniversary);
+let dateVal = date.getTime();
+let today = new Date();
+let now = today.getTime();
+let value = now - dateVal;
+let day = Math.floor(value / (1000 * 60 * 60 * 24));
+let month = Math.floor(value / (1000 * 60 * 60 * 24 * 30.4375));
+let year = Math.floor(value / (1000 * 60 * 60 * 24 * 365.25));
+
+console.log(value);
+
+document.getElementById("days").textContent = day.toString();
+document.getElementById("months").textContent = month.toString();
+document.getElementById("years").textContent = year.toString();
+
+
+let musicPlayer = document.querySelector(".music-container");
+let togglePlayer = document.querySelector(".toggle-player");
+
+let trackInfo = document.querySelector(".track-info");
+let trackName = document.querySelector(".trackname");
+let trackArtist = document.querySelector(".trackartist");
+let trackNav = document.querySelector(".track-nav");
+
+let playPauseBtn = document.querySelector(".playpause-track");
+let nextBtn = document.querySelector(".next-track");
+let prevBtn = document.querySelector(".prev-track");
+
+let trackIndex = 0;
+let isPlaying = false;
+let isHidden = true;
+
+let currentTrack = document.createElement("audio");
+let soundBars = document.querySelector(".sound-bars");
+
+togglePlayer.addEventListener("click", function() {
+    isHidden = !isHidden;
+    if(isHidden){
+        musicPlayer.classList.remove("hide");
+        togglePlayer.innerHTML = '<img class="w-[98%]" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/close.svg">';
+        trackInfo.style.transitionDelay = "0.4s";
+        trackNav.style.transitionDelay = "0.4s";
+    } else {
+        musicPlayer.classList.add("hide");
+        togglePlayer.innerHTML = '<img class="w-full" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/plus.svg">';
+        trackInfo.style.transitionDelay = "0s";
+        trackNav.style.transitionDelay = "0s";
+    }
+});
+
+let soundBarsLottie = bodymovin.loadAnimation({
+    container: soundBars,
+    renderer: "svg",
+    loop: true,
+    autoPLay: false,
+    path: "https://lottie.host/9ec12a7e-e429-453a-9f22-a2af1dcb4dca/2zeuy4rwtP.json",
+});
+
+
+let trackList = [
+    {
+        name: "Colgado en tus manos",
+        artist: "Carlos Baute-Marta Sanchez",
+        path: "mp3/musica1.mp3.mpeg",
+    },
+    {
+        name: "I Love You So",
+        artist: "The Walters",
+        path: "mp3/musica2.mp3.mpeg",
+    },
+    {
+        name: "Bye Bye Bye",
+        artist: "NSYNC",
+        path: "mp3/musica3.mp3.mpeg",
+    },
+   
+];
+
+// EVENT LISTENERS
+playPauseBtn.addEventListener("click", playPauseTrack);
+nextBtn.addEventListener("click", nextTrack);
+prevBtn.addEventListener("click", prevTrack);
+
+function loadTrack(trackIndex){
+    currentTrack.src = trackList[trackIndex].path;
+    trackName.textContent = trackList[trackIndex].name;
+    trackArtist.textContent = trackList[trackIndex].artist;
+    currentTrack.addEventListener("ended", nextTrack);
+    currentTrack.load();
+}
+
+loadTrack(trackIndex);
+
+function playPauseTrack(){
+    if(isPlaying == false){
+        playTrack();
+    }else{
+        pauseTrack();
+    }
+}
+
+function playTrack(){
+    currentTrack.play();
+    isPlaying = true;
+    playPauseBtn.innerHTML = '<img class="w-8" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/pause.svg">';
+    soundBarsLottie.play();
+}
+
+function pauseTrack(){
+    currentTrack.pause();
+    isPlaying = false;
+    playPauseBtn.innerHTML = '<img class="w-8" src="file:///C:/Users/elbro/Desktop/Para%20mi%20novia/img/play.svg">';
+    soundBarsLottie.stop();
+}
+
+function nextTrack(){
+    if(trackIndex < trackList.length - 1){
+        trackIndex += 1;
+        loadTrack(trackIndex);
+        playTrack();
+    }else{
+        trackIndex = 0;
+        loadTrack(trackIndex);
+        playTrack();
+    } 
+}
+
+function prevTrack(){
+    if(trackIndex > 0){
+        trackIndex -= 1;
+        loadTrack(trackIndex);
+        playTrack();
+    }else{
+        trackIndex = trackList.length - 1;
+        loadTrack(trackIndex);
+        playTrack();
+    }
+}
+    </script>
+</body>
+</html>
